@@ -1,0 +1,5 @@
+source("makePlotAttendance.R")
+source("makePlotPopulation.R")
+source("makePlotIncome.R")
+source("makePlotHousing.R")
+source("makePlotCrime.R")
