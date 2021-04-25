@@ -8,7 +8,7 @@ source("makePlots.R")
 ui <- navbarPage("Sun Prairie Community Schools",
   tabPanel("Westside Elementary",
            fluidRow(column(6,leafletOutput("map.ws")),
-                    column(6,"Census block(s): 011505-2, 011506-2")),
+                    column(6,"Census block group(s): 011505-2, 011506-2")),
            br(),h4("Attendance rate"),
            tabsetPanel(
              tabPanel("By day",fluidRow(column(6,plotOutput("p.att.day.ws")))),
@@ -54,12 +54,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Income statistics"),
            tabsetPanel(
              navbarMenu("By household income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.hhinc.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.ws2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.hhinc.ws1")),
+                            column(6,"Household income: Combined gross cash income of all members aged >=15 
+                                   years in a household."))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.ws2"))))
              ),
              navbarMenu("By family income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.faminc.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.faminc.ws2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.faminc.ws1")),
+                            column(6,"Family income: Household income for households consisting >=2 members,
+                                   all related by birth, marriage, or adoption."))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.faminc.ws2"))))
              )
            ),
            br(),h4("Crime statistics"),
@@ -71,7 +75,7 @@ ui <- navbarPage("Sun Prairie Community Schools",
            ),
   tabPanel("Northside Elementary",
            fluidRow(column(6,leafletOutput("map.ns")),
-                    column(6,"Census block(s): 011505-1, 011505-3, 011506-3")),
+                    column(6,"Census block group(s): 011505-1, 011505-3, 011506-3")),
            br(),h4("Attendance rate"),
            tabsetPanel(
              tabPanel("By day",fluidRow(column(6,plotOutput("p.att.day.ns")))),
@@ -112,12 +116,12 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Income statistics"),
            tabsetPanel(
              navbarMenu("By household income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.hhinc.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.hhinc.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.ns2"))))
              ),
              navbarMenu("By family income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.faminc.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.faminc.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.faminc.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.faminc.ns2"))))
              )
            ),
            br(),h4("Crime statistics"),
@@ -129,7 +133,7 @@ ui <- navbarPage("Sun Prairie Community Schools",
            ),
   tabPanel("CH Bird Elementary",
            fluidRow(column(6,leafletOutput("map.ch")),
-                    column(6,"Census block(s): 011504-1")),
+                    column(6,"Census block group(s): 011504-1")),
            br(),h4("Attendance rate"),
            tabsetPanel(
              tabPanel("By day",fluidRow(column(6,plotOutput("p.att.day.ch")))),
@@ -164,10 +168,10 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Income statistics"),
            tabsetPanel(
              navbarMenu("By household income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.hhinc.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.hhinc.ch"))))
              ),
              navbarMenu("By family income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.faminc.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.faminc.ch"))))
              )
            ),
            br(),h4("Crime statistics"),
@@ -179,9 +183,11 @@ ui <- navbarPage("Sun Prairie Community Schools",
            ),
   tabPanel("Patrick Marsh Middle",
            fluidRow(column(6,leafletOutput("map.pm")),
-                    column(6,"Census block(s): 011600-2, 011700-2, 011506-1", br(), 
-                           "Shared w/ Northside: 011505-1, 011505-3, 011506-3", br(),
-                           "Shared w/ CH Bird: 011504-1")),
+                    column(6,"Census block group(s): 011600-2, 011700-2, 011506-1",br(), 
+                           "Shared w/ Northside: 011505-1, 011505-3, 011506-3",br(),
+                           "Shared w/ CH Bird: 011504-1",br(),
+                           "* The graphs for population/housing/income/crime statistics are based only on data from the census block
+                           groups unique to Patrick Marsh Middle!")),
            br(),h4("Attendance rate"),
            tabsetPanel(
              tabPanel("By day",fluidRow(column(6,plotOutput("p.att.day.pm")))),
@@ -222,12 +228,12 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Income statistics"),
            tabsetPanel(
              navbarMenu("By household income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.hhinc.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.hhinc.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.pm2"))))
              ),
              navbarMenu("By family income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.faminc.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.faminc.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.faminc.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.faminc.pm2"))))
              )
            ),
            br(),h4("Crime statistics"),
@@ -279,12 +285,12 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Income statistics"),
            tabsetPanel(
              navbarMenu("By household income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.hhinc.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.hhinc.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.hhinc.all2"))))
              ),
              navbarMenu("By family income bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.inc.faminc.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.inc.faminc.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.inc.faminc.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.inc.faminc.all2"))))
              )
            ),
            br(),h4("Crime statistics"),
