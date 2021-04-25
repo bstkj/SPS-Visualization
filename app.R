@@ -39,16 +39,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Housing statistics"),
            tabsetPanel(
              navbarMenu("By gross rent bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.rent.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.rent.ws2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.rent.ws1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.rent.ws2"))))
                         ),
              navbarMenu("By owner costs bracket (w/o mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswom.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswom.ws2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswom.ws1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswom.ws2"))))
                         ),
              navbarMenu("By owner costs bracket (w/ mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswm.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswm.ws2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswm.ws1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswm.ws2"))))
                         )
            ),
            br(),h4("Income statistics"),
@@ -97,16 +97,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Housing statistics"),
            tabsetPanel(
              navbarMenu("By gross rent bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.rent.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.rent.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.rent.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.rent.ns2"))))
              ),
              navbarMenu("By owner costs bracket (w/o mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswom.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswom.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswom.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswom.ns2"))))
              ),
              navbarMenu("By owner costs bracket (w/ mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswm.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswm.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswm.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswm.ns2"))))
              )
            ),
            br(),h4("Income statistics"),
@@ -152,13 +152,13 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Housing statistics"),
            tabsetPanel(
              navbarMenu("By gross rent bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.rent.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.rent.ch"))))
              ),
              navbarMenu("By owner costs bracket (w/o mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswom.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswom.ch"))))
              ),
              navbarMenu("By owner costs bracket (w/ mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswm.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswm.ch"))))
              )
            ),
            br(),h4("Income statistics"),
@@ -207,16 +207,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Housing statistics"),
            tabsetPanel(
              navbarMenu("By gross rent bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.rent.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.rent.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.rent.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.rent.pm2"))))
              ),
              navbarMenu("By owner costs bracket (w/o mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswom.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswom.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswom.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswom.pm2"))))
              ),
              navbarMenu("By owner costs bracket (w/ mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswm.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswm.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswm.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswm.pm2"))))
              )
            ),
            br(),h4("Income statistics"),
@@ -264,16 +264,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Housing statistics"),
            tabsetPanel(
              navbarMenu("By gross rent bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.rent.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.rent.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.rent.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.rent.all2"))))
              ),
              navbarMenu("By owner costs bracket (w/o mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswom.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswom.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswom.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswom.all2"))))
              ),
              navbarMenu("By owner costs bracket (w/ mortage)",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.hous.costswm.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.hous.costswm.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.hous.costswm.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.hous.costswm.all2"))))
              )
            ),
            br(),h4("Income statistics"),
