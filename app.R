@@ -19,16 +19,21 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Population statistics"),
            tabsetPanel(
              navbarMenu("By race/ethnicity",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.raceeth.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.ws2"))))
+                        tabPanel("census block group view",
+                                 fluidRow(column(6,plotOutput("p.pop.raceeth.ws1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.ws2"))))
              ),
              navbarMenu("By age bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.agecat.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.agecat.ws2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.agecat.ws1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.agecat.ws2"))))
              ),
              navbarMenu("By household type",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.hhcat.ws1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.ws2"))))
+                        tabPanel("census block group view",fluidRow(column(7,plotOutput("p.pop.hhcat.ws1")),
+                                                       column(5,"Household => (i) 1-person, or (ii) >=2-person",
+                                                              br(),"Household => (i) family, or (ii) non-family",
+                                                              br(), "Family household => (i) married-couple family, or (ii) not married-couple family",
+                                                              br(), "* Color scheme here is unrelated to the color scheme for schools!"))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.ws2"))))
              )
            ),
            br(),h4("Housing statistics"),
@@ -77,16 +82,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Population statistics"),
            tabsetPanel(
              navbarMenu("By race/ethnicity",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.raceeth.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.raceeth.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.ns2"))))
              ),
              navbarMenu("By age bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.agecat.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.agecat.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.agecat.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.agecat.ns2"))))
              ),
              navbarMenu("By household type",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.hhcat.ns1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.ns2"))))
+                        tabPanel("census block group view",fluidRow(column(8,plotOutput("p.pop.hhcat.ns1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.ns2"))))
              )
            ),
            br(),h4("Housing statistics"),
@@ -135,13 +140,13 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Population statistics"),
            tabsetPanel(
              navbarMenu("By race/ethnicity",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.raceeth.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.raceeth.ch"))))
              ),
              navbarMenu("By age bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.agecat.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.agecat.ch"))))
              ),
              navbarMenu("By household type",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.hhcat.ch"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.hhcat.ch"))))
              )
            ),
            br(),h4("Housing statistics"),
@@ -187,16 +192,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Population statistics"),
            tabsetPanel(
              navbarMenu("By race/ethnicity",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.raceeth.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.raceeth.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.pm2"))))
              ),
              navbarMenu("By age bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.agecat.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.agecat.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.agecat.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.agecat.pm2"))))
              ),
              navbarMenu("By household type",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.hhcat.pm1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.pm2"))))
+                        tabPanel("census block group view",fluidRow(column(8,plotOutput("p.pop.hhcat.pm1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.pm2"))))
              )
            ),
            br(),h4("Housing statistics"),
@@ -244,16 +249,16 @@ ui <- navbarPage("Sun Prairie Community Schools",
            br(),h4("Population statistics"),
            tabsetPanel(
              navbarMenu("By race/ethnicity",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.raceeth.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.raceeth.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.raceeth.all2"))))
              ),
              navbarMenu("By age bracket",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.agecat.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.agecat.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.agecat.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.agecat.all2"))))
              ),
              navbarMenu("By household type",
-                        tabPanel("Block view",fluidRow(column(6,plotOutput("p.pop.hhcat.all1")))),
-                        tabPanel("Combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.all2"))))
+                        tabPanel("census block group view",fluidRow(column(6,plotOutput("p.pop.hhcat.all1")))),
+                        tabPanel("combined view",fluidRow(column(6,plotOutput("p.pop.hhcat.all2"))))
              )
            ),
            br(),h4("Housing statistics"),
