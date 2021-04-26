@@ -80,7 +80,7 @@ p.hous.rent.all2 <- ggplot(grossrent.dat %>% group_by(school,`gross rent`) %>% #
         legend.background = element_blank())
 
 ### monthly owner costs (w/ mortgage)
-costs.brackets <- c("<10","10-19","20-29","30-39",">=40") # expressed as % of total income
+costs.brackets <- c("<=10","10-29","20-30","30-40",">=40") # expressed as % of total income
 
 p.hous.costswm.ws1 <- ggplot(costswm.dat %>% filter(school=="Westside"), # westside (not combined)
        aes(x=`monthly costs (% total income)`,y=population,group=block)) + 
@@ -157,7 +157,7 @@ p.hous.costswm.all2 <- ggplot(costswm.dat %>% group_by(school,`monthly costs (% 
         legend.background = element_blank())
 
 ### monthly owner costs (w/o mortgage)
-costs.brackets <- c("<10","10-19","20-29","30-39",">=40") # expressed as % of total income
+costs.brackets <- c("<=10","10-20","20-30","30-40",">=40") # expressed as % of total income
 
 p.hous.costswom.ws1 <- ggplot(costswom.dat %>% filter(school=="Westside"), # westside (not combined)
        aes(x=`monthly costs (% total income)`,y=population,group=block)) + 
