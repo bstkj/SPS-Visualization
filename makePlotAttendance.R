@@ -40,11 +40,11 @@ p.att.day.all <- ggplot(tibble("attendance rate"=as.vector(days.dat[1:4,]), # co
               "days"=rep(days,each=4),
               "schools"=rep(schools,5)),
        aes(x=days,y=`attendance rate`,group=schools)) + 
-  geom_point() + geom_line(alpha=0.5,size=2,aes(color=schools)) + 
+  geom_point() + geom_line(alpha=0.5,size=1,aes(color=schools)) + 
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) +
   labs(col="school") + 
-  theme(legend.position=c(0.25,0.5),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         legend.background=element_blank())
 
 ### attendance rate by grade
@@ -85,11 +85,11 @@ p.att.grade.all <- ggplot(tibble(Grade=rep(grades,c(rep(3,6),1,1)), # combined
               "Attendance rate"=c(as.vector(grade.dat[1:3,1:6]),
                                   as.vector(grade.dat[4,7:8]))),
        aes(x=Grade,y=`Attendance rate`,group=School)) +
-  geom_point() + geom_line(alpha=0.5,size=2,aes(col=School)) + 
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=School)) + 
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) +
   labs(col="school") + 
-  theme(legend.position=c(0.95,0.7),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         legend.background=element_blank())
 
 ### attendance rate by month
@@ -130,11 +130,11 @@ p.att.month.all <- ggplot(tibble(Month=rep(months,each=4),
               School=rep(schools,5),
               "Attendance rate"=as.vector(month.dat[1:4,])),
        aes(x=Month,y=`Attendance rate`,group=School)) +
-  geom_point() + geom_line(alpha=0.5,size=2,aes(color=School)) + 
+  geom_point() + geom_line(alpha=0.5,size=1,aes(color=School)) + 
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   labs(col="school") + 
-  theme(legend.position=c(0.95,0.45),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         legend.background=element_blank())
 
 ### attendance rate by race/eth
@@ -175,11 +175,11 @@ p.att.raceeth.all <- ggplot(tibble("attendance rate"=as.vector(raceeth.dat[1:4,]
               "race/eth"=rep(raceeth,each=4),
               School=rep(schools,7)),
        aes(x=`race/eth`,y=`attendance rate`,group=School)) + 
-  geom_point() + geom_line(alpha=0.5,size=2,aes(color=School)) +
+  geom_point() + geom_line(alpha=0.5,size=1,aes(color=School)) +
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) +
   labs(col="school") + 
-  theme(legend.position=c(0.3,0.5),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0.8,angle=10),
         legend.background=element_blank())
 

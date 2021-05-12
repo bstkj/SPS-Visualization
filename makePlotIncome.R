@@ -1,6 +1,11 @@
 # loads hhincome.dat, famincome.dat
 source("loadDataIncome.R")
 
+blkgrp.colors <- c("011506-2"="purple","011505-2"="mediumorchid1",
+                   "011505-1"="green4","011505-3"="green","011506-3"="greenyellow",
+                   "011504-1"="red",
+                   "011600-2"="blue","011700-2"="dodgerblue2","011506-1"="deepskyblue")
+
 ### population % of different household income categories
 income.brackets <- c("<=10","10-20","20-30","30-40","40-50","50-75",
                      "75-100","100-150","150-200",">=200")
@@ -68,11 +73,11 @@ p.inc.hhinc.pm2 <- ggplot(
 
 p.inc.hhinc.all1 <- ggplot(hhincome.dat, # all (not combined)
        aes(x=`household income cat`,y=`population %`,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) + 
-  scale_x_discrete(labels=income.brackets) + labs(x="income bracket (x$1000)") + 
-  theme(legend.position=c(0.2,1),legend.justification=c("right","top"),
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  scale_color_manual(values=blkgrp.colors) + 
+  scale_x_discrete(labels=income.brackets) + 
+  labs(x="income bracket (x$1000)",col="census block group") + 
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -84,7 +89,7 @@ p.inc.hhinc.all2 <- ggplot(
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) +
   scale_x_discrete(labels=income.brackets) + labs(x="income bracket (x$1000)") +
-  theme(legend.position=c(0.2,1),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -154,11 +159,11 @@ p.inc.faminc.pm2 <- ggplot(
 
 p.inc.faminc.all1 <- ggplot(famincome.dat, # all (not combined) 
        aes(x=`family income cat`,y=`population %`,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) + 
-  scale_x_discrete(labels=income.brackets) + labs(x="income bracket (x$1000)") + 
-  theme(legend.position=c(0.2,1),legend.justification=c("right","top"),
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  scale_color_manual(values=blkgrp.colors) + 
+  scale_x_discrete(labels=income.brackets) + 
+  labs(x="income bracket (x$1000)",col="census block group") + 
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -170,10 +175,10 @@ p.inc.faminc.all2 <- ggplot(
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   scale_x_discrete(labels=income.brackets) + labs(x="income bracket (x$1000)") + 
-  theme(legend.position=c(0.2,1),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
 ### remove unneeded variables
 rm(famincome.dat); rm(hhincome.dat)
-rm(income.brackets)
+rm(income.brackets); rm(blkgrp.colors)

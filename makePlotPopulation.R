@@ -1,6 +1,11 @@
 # loads agecat.dat, householdcat.dat, raceeth.dat
 source("loadDataPopulation.R")
 
+blkgrp.colors <- c("011506-2"="purple","011505-2"="mediumorchid1",
+                   "011505-1"="green4","011505-3"="green","011506-3"="greenyellow",
+                   "011504-1"="red",
+                   "011600-2"="blue","011700-2"="dodgerblue2","011506-1"="deepskyblue")
+
 ### population count by race/eth
 raceeth.categories <- c("White","Hispanic","Black","Asian","Native",
                         "1-race (other)", ">=2-race")
@@ -65,12 +70,12 @@ p.pop.raceeth.pm2 <- ggplot(raceeth.dat %>% filter(school=="Patrick Marsh") %>% 
   theme(axis.text.x=element_text(vjust=0,angle=0))
 
 p.pop.raceeth.all1 <- ggplot(raceeth.dat, # all (not combined)
-       aes(x=`race/eth`,y=population,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + labs(x="race/ethnicity") + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) + 
+                             aes(x=`race/eth`,y=population,group=block)) +
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  labs(x="race/ethnicity",col="census block group") + 
+  scale_color_manual(values=blkgrp.colors) + 
   scale_x_discrete(labels=raceeth.categories) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background=element_blank())
 
@@ -81,7 +86,7 @@ p.pop.raceeth.all2 <- ggplot(raceeth.dat %>% group_by(school,`race/eth`) %>% # a
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   scale_x_discrete(labels=raceeth.categories) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background=element_blank())
 
@@ -148,11 +153,11 @@ p.pop.agecat.pm2 <- ggplot(agecat.dat %>% filter(school=="Patrick Marsh") %>% # 
 
 p.pop.agecat.all1 <- ggplot(agecat.dat, # all (not combined)
        aes(x=`age cat`,y=population,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + labs(x="age bracket") + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) +
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  labs(x="age bracket",col="census block group") + 
+  scale_color_manual(values=blkgrp.colors) +
   scale_x_discrete(labels=age.brackets) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background=element_blank())
 
@@ -163,7 +168,7 @@ p.pop.agecat.all2 <- ggplot(agecat.dat %>% group_by(school,`age cat`) %>% # all 
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   scale_x_discrete(labels=age.brackets) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -293,11 +298,11 @@ p.pop.hhcat.pm2 <- ggplot(householdcat.dat %>% filter(school=="Patrick Marsh") %
 
 p.pop.hhcat.all1 <- ggplot(householdcat.dat, # all (not combined) 
        aes(x=`household cat`,y=population,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + labs(x="household type") + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) + 
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  labs(x="household type",col="census block group") + 
+  scale_color_manual(values=blkgrp.colors) + 
   scale_x_discrete(labels=hh.types) + 
-  theme(legend.position=c(0.2,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -308,10 +313,11 @@ p.pop.hhcat.all2 <- ggplot(householdcat.dat %>% group_by(school,`household cat`)
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   scale_x_discrete(labels=hh.types) + 
-  theme(legend.position=c(0.2,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
 ### remove unneeded variables
 rm(agecat.dat); rm(householdcat.dat); rm(raceeth.dat)
 rm(raceeth.categories); rm(age.brackets); rm(hh.types); rm(hh.types.col); rm(new.col)
+rm(blkgrp.colors)

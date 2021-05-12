@@ -1,5 +1,10 @@
 source("loadDataHousing.R")
 
+blkgrp.colors <- c("011506-2"="purple","011505-2"="mediumorchid1",
+                   "011505-1"="green4","011505-3"="green","011506-3"="greenyellow",
+                   "011504-1"="red",
+                   "011600-2"="blue","011700-2"="dodgerblue2","011506-1"="deepskyblue")
+
 ### gross rent
 rent.brackets <- c("<199","200-299","300-499","500-699","700-999",
                    "1000-1499","1500-1999",">=2000")
@@ -60,11 +65,11 @@ p.hous.rent.pm2 <- ggplot(grossrent.dat %>% filter(school=="Patrick Marsh") %>% 
 
 p.hous.rent.all1 <- ggplot(grossrent.dat, # all (not combined)
        aes(x=`gross rent`,y=population,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) + 
-  scale_x_discrete(labels=rent.brackets) + labs(x="gross rent ($)") + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  scale_color_manual(values=blkgrp.colors) + 
+  scale_x_discrete(labels=rent.brackets) + 
+  labs(x="gross rent ($)",col="census block group") + 
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -75,7 +80,7 @@ p.hous.rent.all2 <- ggplot(grossrent.dat %>% group_by(school,`gross rent`) %>% #
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   scale_x_discrete(labels=rent.brackets) + labs(x="gross rent ($)") + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -137,11 +142,11 @@ p.hous.costswm.pm2 <- ggplot(costswm.dat %>% filter(school=="Patrick Marsh") %>%
 
 p.hous.costswm.all1 <- ggplot(costswm.dat, # all (not combined)
        aes(x=`monthly costs (% total income)`,y=population,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) + 
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  labs(col="census block group") + 
+  scale_color_manual(values=blkgrp.colors) + 
   scale_x_discrete(labels=costs.brackets) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -152,7 +157,7 @@ p.hous.costswm.all2 <- ggplot(costswm.dat %>% group_by(school,`monthly costs (% 
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   scale_x_discrete(labels=costs.brackets) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -214,11 +219,11 @@ p.hous.costswom.pm2 <- ggplot(costswom.dat %>% filter(school=="Patrick Marsh") %
 
 p.hous.costswom.all1 <- ggplot(costswom.dat, # all (not combined)
        aes(x=`monthly costs (% total income)`,y=population,group=block)) +
-  geom_point() + geom_line(alpha=0.5,size=1,aes(col=school)) + 
-  scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
-                              "Northside"="green","Patrick Marsh"="blue")) + 
+  geom_point() + geom_line(alpha=0.5,size=1,aes(col=block)) + 
+  scale_color_manual(values=blkgrp.colors) + 
   scale_x_discrete(labels=costs.brackets) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  labs(col="census block group") + 
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
@@ -229,10 +234,10 @@ p.hous.costswom.all2 <- ggplot(costswom.dat %>% group_by(school,`monthly costs (
   scale_color_manual(values=c("CH Bird"="red","Westside"="purple",
                               "Northside"="green","Patrick Marsh"="blue")) + 
   scale_x_discrete(labels=costs.brackets) + 
-  theme(legend.position=c(0.95,0.95),legend.justification=c("right","top"),
+  theme(legend.justification=c("right","top"),
         axis.text.x=element_text(vjust=0,angle=0),
         legend.background = element_blank())
 
 ### remove unneeded variables
 rm(costswm.dat); rm(costswom.dat); rm(grossrent.dat)
-rm(rent.brackets); rm(costs.brackets)
+rm(rent.brackets); rm(costs.brackets); rm(blkgrp.colors)
